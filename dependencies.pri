@@ -4,3 +4,4 @@ DEPENDENCIES += tp_image_utils_triangulation
 INCLUDEPATHS += tp_pipeline_triangulation/inc/
 LIBRARIES    += tp_pipeline_triangulation
 
+TP_STATIC_INIT += tp_pipeline_triangulation
