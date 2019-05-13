@@ -6,7 +6,7 @@
 
 #include "tp_pipeline_image_utils/Globals.h"
 
-#include "tp_pipeline_math_utils/members/PolygonsMember.h"
+#include "tp_data_math_utils/members/PolygonsMember.h"
 
 #include "tp_pipeline/StepDetails.h"
 #include "tp_pipeline/StepInput.h"
@@ -29,7 +29,7 @@ void ColorizePolygonsStepDelegate::executeStep(tp_pipeline::StepDetails* stepDet
                                                tp_data::Collection& output) const
 {
   std::string colorImageName = stepDetails->parameterValue<std::string>(tp_pipeline_image_utils::colorImageSID());
-  std::string   polygonsName = stepDetails->parameterValue<std::string>(   tp_pipeline_math_utils::polygonsSID());
+  std::string   polygonsName = stepDetails->parameterValue<std::string>(   tp_data_math_utils::polygonsSID());
 
   const tp_data_image_utils::ColorMapMember* colorImage{nullptr};
   input.memberCast(colorImageName, colorImage);
@@ -62,14 +62,14 @@ void ColorizePolygonsStepDelegate::executeStep(tp_pipeline::StepDetails* stepDet
 
     for(auto member : input.previousSteps.back()->members())
     {
-      auto polygons = dynamic_cast<tp_pipeline_math_utils::PolygonsMember*>(member);
+      auto polygons = dynamic_cast<tp_data_math_utils::PolygonsMember*>(member);
       if(polygons)
         addPolygons(polygons->data);
     }
   }
   else
   {
-    tp_pipeline_math_utils::PolygonsMember* polygons{nullptr};
+    tp_data_math_utils::PolygonsMember* polygons{nullptr};
     input.memberCast(polygonsName, polygons);
 
     if(!polygons)
@@ -102,7 +102,7 @@ void ColorizePolygonsStepDelegate::fixupParameters(tp_pipeline::StepDetails* ste
   }
 
   {
-    const tp_utils::StringID& name = tp_pipeline_math_utils::polygonsSID();
+    const tp_utils::StringID& name = tp_data_math_utils::polygonsSID();
     tp_pipeline::Parameter param = tpGetMapValue(parameters, name);
     param.name = name;
     param.description = "The polygons to draw.";
