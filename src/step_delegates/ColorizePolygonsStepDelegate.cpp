@@ -95,7 +95,7 @@ void ColorizePolygonsStepDelegate::fixupParameters(tp_pipeline::StepDetails* ste
     tp_pipeline::Parameter param = tpGetMapValue(parameters, name);
     param.name = name;
     param.description = "The source color image to draw on.";
-    param.type = tp_pipeline::namedDataSID();
+    param.setNamedData();
 
     stepDetails->setParamerter(param);
     validParams.push_back(name);
@@ -106,7 +106,7 @@ void ColorizePolygonsStepDelegate::fixupParameters(tp_pipeline::StepDetails* ste
     tp_pipeline::Parameter param = tpGetMapValue(parameters, name);
     param.name = name;
     param.description = "The polygons to draw.";
-    param.type = tp_pipeline::namedDataSID();
+    param.setNamedData();
 
     stepDetails->setParamerter(param);
     validParams.push_back(name);
