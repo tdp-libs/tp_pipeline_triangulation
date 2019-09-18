@@ -6,7 +6,7 @@
 //##################################################################################################
 namespace tp_pipeline_triangulation
 {
-TDP_DEFINE_ID(             colorizePolygonsSID,                "Colorize polygons")
+TDP_DEFINE_ID(             colorizePolygonsSID,                "Colorize polygons");
 
 //##################################################################################################
 void createStepDelegates(tp_pipeline::StepDelegateMap& stepDelegates, const tp_data::CollectionFactory* collectionFactory)
