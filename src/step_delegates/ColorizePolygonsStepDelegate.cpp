@@ -26,8 +26,11 @@ ColorizePolygonsStepDelegate::ColorizePolygonsStepDelegate():
 //##################################################################################################
 void ColorizePolygonsStepDelegate::executeStep(tp_pipeline::StepDetails* stepDetails,
                                                const tp_pipeline::StepInput& input,
-                                               tp_data::Collection& output) const
+                                               tp_data::Collection& output,
+                                               tp_data::Collection& persistentData) const
 {
+  TP_UNUSED(persistentData);
+
   std::string colorImageName = stepDetails->parameterValue<std::string>(tp_pipeline_image_utils::colorImageSID());
   std::string   polygonsName = stepDetails->parameterValue<std::string>(   tp_data_math_utils::polygonsSID());
 

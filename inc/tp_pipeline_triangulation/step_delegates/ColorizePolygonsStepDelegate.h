@@ -16,8 +16,9 @@ public:
 
   //################################################################################################
   void executeStep(tp_pipeline::StepDetails* stepDetails,
-                   const tp_pipeline::StepInput& inputs,
-                   tp_data::Collection& output) const override;
+                   const tp_pipeline::StepInput& input,
+                   tp_data::Collection& output,
+                   tp_data::Collection& persistentData) const override;
 
   //################################################################################################
   void fixupParameters(tp_pipeline::StepDetails* stepDetails)const override;
