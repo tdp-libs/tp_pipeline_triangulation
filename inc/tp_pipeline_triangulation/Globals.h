@@ -1,8 +1,12 @@
-#ifndef tp_pipeline_triangulation_Globals_h
-#define tp_pipeline_triangulation_Globals_h
+#pragma once
 
 #include "tp_utils/StringID.h"
 
+#if defined(TP_PIPELINE_TRIANGULATION_LIBRARY)
+#  define TP_PIPELINE_TRIANGULATION_SHARED_EXPORT TP_EXPORT
+#else
+#  define TP_PIPELINE_TRIANGULATION_SHARED_EXPORT TP_IMPORT
+#endif
 namespace tp_data
 {
 class CollectionFactory;
@@ -28,5 +32,3 @@ void createStepDelegates(tp_pipeline::StepDelegateMap& stepDelegates, const tp_d
 int staticInit();
 
 }
-
-#endif

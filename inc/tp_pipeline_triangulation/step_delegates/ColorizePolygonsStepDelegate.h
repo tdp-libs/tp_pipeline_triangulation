@@ -1,29 +1,24 @@
-#ifndef tp_pipeline_triangulation_ColorizePolygonsStepDelegate_h
-#define tp_pipeline_triangulation_ColorizePolygonsStepDelegate_h
+#pragma once
 
 #include "tp_pipeline_triangulation/Globals.h"
-#include "tp_pipeline/AbstractStepDelegate.h"
+
+#include "tp_pipeline/StepDelegate.h"
 
 namespace tp_pipeline_triangulation
 {
 
 //##################################################################################################
-class ColorizePolygonsStepDelegate: public tp_pipeline::AbstractStepDelegate
+class TP_PIPELINE_TRIANGULATION_SHARED_EXPORT ColorizePolygonsStepDelegate: public tp_pipeline::StepDelegate
 {
 public:
   //################################################################################################
   ColorizePolygonsStepDelegate();
 
   //################################################################################################
-  void executeStep(tp_pipeline::StepDetails* stepDetails,
-                   const tp_pipeline::StepInput& input,
-                   tp_data::Collection& output,
-                   tp_data::Collection& persistentData) const override;
+  void executeStep(tp_pipeline::StepContext* stepContext) const override;
 
   //################################################################################################
   void fixupParameters(tp_pipeline::StepDetails* stepDetails)const override;
 };
 
 }
-
-#endif
