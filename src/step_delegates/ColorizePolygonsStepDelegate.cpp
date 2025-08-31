@@ -9,8 +9,7 @@
 #include "tp_data_math_utils/members/PolygonsMember.h"
 
 #include "tp_pipeline/StepDetails.h"
-#include "tp_pipeline/StepInput.h"
-#include "tp_pipeline/StepOutput.h"
+#include "tp_pipeline/StepContext.h"
 
 namespace tp_pipeline_triangulation
 {
