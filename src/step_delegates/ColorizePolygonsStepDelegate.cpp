@@ -30,14 +30,14 @@ void ColorizePolygonsStepDelegate::executeStep(tp_pipeline::StepContext* stepCon
 {
   TP_UNUSED(stepContext);
 
-  auto colorImage = stepContext->stepInput->memberCast<tp_data_image_utils::ColorMapMember>(tp_pipeline_image_utils::colorImageSID());
+  auto colorImage = stepContext->memberCast<tp_data_image_utils::ColorMapMember>(tp_pipeline_image_utils::colorImageSID());
   if(!colorImage)
   {
     stepContext->stepOutput->addError("Faild to get source image.");
     return;
   }
 
-  auto polygons = stepContext->stepInput->memberCast<tp_data_math_utils::PolygonsMember>(tp_data_math_utils::polygonsSID());
+  auto polygons = stepContext->memberCast<tp_data_math_utils::PolygonsMember>(tp_data_math_utils::polygonsSID());
   if(!polygons)
   {
     stepContext->stepOutput->addError("Failed to find polygons.");
